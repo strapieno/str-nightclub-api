@@ -9,16 +9,16 @@ return [
                     'route' => '/rest'
                 ],
                 'child_routes' => [
-                    'user' => [
+                    'nightclub' => [
                         'type' => 'Segment',
                         'may_terminate' => true,
                         'options' => [
-                            'route' => '/user[/:user_id]',
+                            'route' => '/nightclub[/:nightclub_id]',
                             'defaults' => [
                                 'controller' => 'Strapieno\NightClub\Api\V1\Rest\Controller'
                             ],
                             'constraints' => [
-                                'user_id' => '[0-9a-f]{24}'
+                                'nightclub_id' => '[0-9a-f]{24}'
                             ]
                         ]
                     ]
@@ -37,11 +37,11 @@ return [
     ],
     'zf-rest' => [
         'Strapieno\NightClub\Api\V1\Rest\Controller' => [
-            'service_name' => 'user',
+            'service_name' => 'nightclub',
             'listener' => 'Strapieno\NightClub\Api\V1\Rest\ConnectedResource',
-            'route_name' => 'api-rest/user',
-            'route_identifier_name' => 'user_id',
-            'collection_name' => 'users',
+            'route_name' => 'api-rest/nightclub',
+            'route_identifier_name' => 'nightclub_id',
+            'collection_name' => 'nightclubs',
             'entity_http_methods' => [
                 0 => 'GET',
                 1 => 'PATCH',
@@ -53,11 +53,7 @@ return [
                 1 => 'POST',
             ],
             'collection_query_whitelist' => [
-                'user_name',
-                'email',
-                'first_name',
-                'last_name',
-                'order_by',
+                    
             ],
             'page_size' => 10,
             'page_size_param' => 'page_size',
@@ -82,8 +78,8 @@ return [
         'metadata_map' => [
             'Strapieno\NightClub\Model\Entity\NightClubEntity' => [
                 'entity_identifier_name' => 'id',
-                'route_name' => 'api-rest/user',
-                'route_identifier_name' => 'user_id',
+                'route_name' => 'api-rest/nightclub',
+                'route_identifier_name' => 'nightclub_id',
                 'hydrator' => 'NightClubApiHydrator',
             ],
         ],
