@@ -29,9 +29,10 @@ return [
     'matryoshka-apigility' => [
         'matryoshka-connected' => [
                 'Strapieno\NightClub\Api\V1\Rest\ConnectedResource' => [
-                'model' => 'Strapieno\NightClub\Model\NightClubModelService',
-                'collection_criteria' => 'Strapieno\NightClub\Model\Criteria\NightClubCollectionCriteria',
-                'entity_criteria' => 'Strapieno\Model\Criteria\NotIsolatedActiveRecordCriteria'
+                    'model' => 'Strapieno\NightClub\Model\NightClubModelService',
+                    'collection_criteria' => 'Strapieno\NightClub\Model\Criteria\NightClubCollectionCriteria',
+                    'entity_criteria' => 'Strapieno\Model\Criteria\NotIsolatedActiveRecordCriteria',
+                    'hydrator' => 'NightClubApiHydrator'
             ]
         ]
     ],
