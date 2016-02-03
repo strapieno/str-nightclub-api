@@ -53,7 +53,7 @@ return [
                 1 => 'POST',
             ],
             'collection_query_whitelist' => [
-                    
+
             ],
             'page_size' => 10,
             'page_size_param' => 'page_size',
