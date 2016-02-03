@@ -15,7 +15,6 @@
     "zfcampus/zf-console": "~1.0",
     "matryoshka-model/matryoshka": "0.8.*@dev",
     "matryoshka-model/mongo-wrapper": "0.8.*@dev",
-    "matryoshka-model/matryoshka": "0.8.*@dev",
     "matryoshka-model/zf2-matryoshka-module": "0.8.*@dev",
     "matryoshka-model/zf-apigility-matryoshka": "dev-develop",
     "strapieno/str-nightclub-model" : "dev-develop",
