@@ -1,5 +1,5 @@
 <?php
-namespace Strapieno\User\Api;
+namespace Strapieno\NightClub\Api;
 
 use Zend\ModuleManager\Feature\HydratorProviderInterface;
 use Zend\ModuleManager\Feature\InputFilterProviderInterface;
