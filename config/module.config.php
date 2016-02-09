@@ -30,6 +30,7 @@ return [
         'matryoshka-connected' => [
                 'Strapieno\NightClub\Api\V1\Rest\ConnectedResource' => [
                     'model' => 'Strapieno\NightClub\Model\NightClubModelService',
+                    'prototype_strategy' => 'Matryoshka\Model\Object\PrototypeStrategy\ServiceLocatorStrategy',
                     'collection_criteria' => 'Strapieno\NightClub\Model\Criteria\NightClubCollectionCriteria',
                     'entity_criteria' => 'Strapieno\Model\Criteria\NotIsolatedActiveRecordCriteria',
                     'hydrator' => 'NightClubApiHydrator'
@@ -78,6 +79,12 @@ return [
         // map each class (by name) to their metadata mappings
         'metadata_map' => [
             'Strapieno\NightClub\Model\Entity\NightClubEntity' => [
+                'entity_identifier_name' => 'id',
+                'route_name' => 'api-rest/nightclub',
+                'route_identifier_name' => 'nightclub_id',
+                'hydrator' => 'NightClubApiHydrator',
+            ],
+            'Strapieno\NightClub\Model\Entity\ClubPriveEntity' => [
                 'entity_identifier_name' => 'id',
                 'route_name' => 'api-rest/nightclub',
                 'route_identifier_name' => 'nightclub_id',
