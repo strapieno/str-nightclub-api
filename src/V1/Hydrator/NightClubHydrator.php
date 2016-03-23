@@ -3,6 +3,8 @@ namespace Strapieno\NightClub\Api\V1\Hydrator;
 
 use Matryoshka\Model\Hydrator\Strategy\HasManyStrategy;
 use Matryoshka\Model\Hydrator\Strategy\HasOneStrategy;
+use Matryoshka\Model\Hydrator\Strategy\SetTypeStrategy;
+use Strapieno\NightClub\Model\Entity\Object\AggregateRatingObject;
 use Strapieno\NightClub\Model\Entity\Object\GeoCoordinateObject;
 use Strapieno\NightClub\Model\Entity\Object\MediaObject;
 use Strapieno\NightClub\Model\Entity\Object\PostalAddressObject;
@@ -17,14 +19,24 @@ class NightClubHydrator extends DateHystoryHydrator
     public function __construct($underscoreSeparatedKeys = true)
     {
         parent::__construct($underscoreSeparatedKeys);
+
         $this->addStrategy(
             'geo_coordinate',
             new HasOneStrategy(new GeoCoordinateObject(), false)
         );
+
+        $aggregateRating = new AggregateRatingObject();
+        $aggregateRating->getHydrator()->addStrategy('partial', new SetTypeStrategy('array', 'array'));
+        $this->addStrategy(
+            'aggregate_rating',
+            new HasOneStrategy($aggregateRating, false)
+        );
+
         $this->addStrategy(
             'postal_address',
             new HasOneStrategy(new PostalAddressObject(), false)
         );
+
         $this->addStrategy(
             'media',
             // FIXME library 2 param type function
