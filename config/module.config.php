@@ -93,5 +93,34 @@ return [
         ],
     ],
     'zf-content-validation' => [
+        'Strapieno\NightClub\Api\V1\Rest\Controller' => [
+            'input_filter' => 'Strapieno\NightClub\Api\InputFilter\DefaultInputFilter',
+        ]
+    ],
+    'input_filter_specs' => [
+        'Strapieno\NightClub\Api\InputFilter\DefaultGeoCoordiateInputFilter' => [
+            'latitude' => [
+                'name' => 'latitude',
+                'require' => true,
+                'allow_empty' => false
+            ],
+            'longitude' => [
+                'name' => 'longitude',
+                'require' => true,
+                'allow_empty' => false
+            ]
+        ],
+        'Strapieno\NightClub\Api\InputFilter\DefaultInputFilter' => [
+            'merge' => 'Strapieno\NightClub\Model\InputFilter\DefaultInputFilter',
+            'name' => [
+                'name' => 'name',
+                'require' => true,
+                'allow_empty' => false
+            ],
+            'geo_coordinate' => [
+                'name' => 'geo_coordinate',
+                'type' => 'Strapieno\NightClub\Api\InputFilter\DefaultGeoCoordiateInputFilter'
+            ],
+        ]
     ]
 ];
