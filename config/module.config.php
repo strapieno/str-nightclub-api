@@ -97,7 +97,7 @@ return [
             'input_filter' => 'Strapieno\NightClub\Api\InputFilter\DefaultInputFilter',
         ]
     ],
-    'input_filter_specs' => [
+    'strapieno_input_filter_specs' => [
         'Strapieno\NightClub\Api\InputFilter\DefaultGeoCoordiateInputFilter' => [
             'latitude' => [
                 'name' => 'latitude',
