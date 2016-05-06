@@ -95,10 +95,11 @@ return [
     'zf-content-validation' => [
         'Strapieno\NightClub\Api\V1\Rest\Controller' => [
             'input_filter' => 'Strapieno\NightClub\Api\InputFilter\DefaultInputFilter',
+            'POST' => 'Strapieno\NightClub\Api\InputFilter\PostInputFilter'
         ]
     ],
     'strapieno_input_filter_specs' => [
-        'Strapieno\NightClub\Api\InputFilter\DefaultGeoCoordiateInputFilter' => [
+        'Strapieno\NightClub\Api\InputFilter\PostGeoCoordiateInputFilter' => [
             'latitude' => [
                 'name' => 'latitude',
                 'require' => true,
@@ -110,17 +111,54 @@ return [
                 'allow_empty' => false
             ]
         ],
+        'Strapieno\NightClub\Api\InputFilter\PostPostalAddressInputFilter' => [
+            'address_locality' => [
+                'name' => 'address_locality',
+                'require' => true,
+                'allow_empty' => false
+            ],
+            'address_region' => [
+                'name' => 'address_region',
+                'require' => true,
+                'allow_empty' => false
+            ],
+
+            'postal_code' => [
+                'name' => 'postal_code',
+                'require' => true,
+                'allow_empty' => false
+            ],
+
+            'street_address' => [
+                'name' => 'street_address',
+                'require' => true,
+                'allow_empty' => false
+            ],
+
+            'address_country' => [
+                'name' => 'address_country',
+                'require' => true,
+                'allow_empty' => false
+            ],
+        ],
         'Strapieno\NightClub\Api\InputFilter\DefaultInputFilter' => [
             'merge' => 'Strapieno\NightClub\Model\InputFilter\DefaultInputFilter',
             'name' => [
                 'name' => 'name',
                 'require' => true,
                 'allow_empty' => false
-            ],
+            ]
+        ],
+        'Strapieno\NightClub\Api\InputFilter\PostInputFilter' => [
+            'merge' => 'Strapieno\NightClub\Api\InputFilter\DefaultInputFilter',
             'geo_coordinate' => [
                 'name' => 'geo_coordinate',
-                'type' => 'Strapieno\NightClub\Api\InputFilter\DefaultGeoCoordiateInputFilter'
+                'type' => 'Strapieno\NightClub\Api\InputFilter\PostGeoCoordiateInputFilter'
             ],
-        ]
+            'postal_address' => [
+                'name' => 'geo_coordinate',
+                'type' => 'Strapieno\NightClub\Api\InputFilter\PostPostalAddressInputFilter'
+            ],
+        ],
     ]
 ];
