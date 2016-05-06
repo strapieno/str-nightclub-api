@@ -94,7 +94,7 @@ return [
     ],
     'zf-content-validation' => [
         'Strapieno\NightClub\Api\V1\Rest\Controller' => [
-            'input_filter' => 'Strapieno\NightClub\Api\InputFilter\DefaultInputFilter',
+            'input_filter' => 'Strapieno\NightClub\Model\InputFilter\DefaultInputFilter',
             'POST' => 'Strapieno\NightClub\Api\InputFilter\PostInputFilter'
         ]
     ],
@@ -141,23 +141,26 @@ return [
                 'allow_empty' => false
             ],
         ],
-        'Strapieno\NightClub\Api\InputFilter\DefaultInputFilter' => [
+
+        'Strapieno\NightClub\Api\InputFilter\PostInputFilter' => [
             'merge' => 'Strapieno\NightClub\Model\InputFilter\DefaultInputFilter',
             'name' => [
                 'name' => 'name',
                 'require' => true,
                 'allow_empty' => false
-            ]
-        ],
-        'Strapieno\NightClub\Api\InputFilter\PostInputFilter' => [
-            'merge' => 'Strapieno\NightClub\Api\InputFilter\DefaultInputFilter',
+            ],
+            'type' => [
+                'name' => 'type',
+                'require' => true,
+                'allow_empty' => false
+            ],
             'geo_coordinate' => [
                 'name' => 'geo_coordinate',
                 'type' => 'Strapieno\NightClub\Api\InputFilter\PostGeoCoordiateInputFilter'
             ],
             'postal_address' => [
                 'name' => 'geo_coordinate',
-                'type' => 'Strapieno\NightClub\Api\InputFilter\PostPostalAddressInputFilter'
+                'type' => 'Strapieno\NightClub\Api\InputFilter\DefaultGeoCoordiateInputFilter'
             ],
         ],
     ]
