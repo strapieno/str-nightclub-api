@@ -157,9 +157,10 @@ return [
             'geo_coordinate' => [
                 'name' => 'geo_coordinate',
                 'type' => 'Strapieno\NightClub\Api\InputFilter\PostGeoCoordiateInputFilter'
+
             ],
             'postal_address' => [
-                'name' => 'geo_coordinate',
+                'name' => 'postal_address',
                 'type' => 'Strapieno\NightClub\Api\InputFilter\PostPostalAddressInputFilter'
             ],
         ],
