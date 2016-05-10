@@ -1,6 +1,11 @@
 <?php
 
 return [
+    'service-listeners' => [
+        'invokables' => [
+            'Strapieno\NightClub\Api\V1\Listener\NotFoundListener' => 'Strapieno\NightClub\Api\V1\Listener\NotFoundListener'
+        ]
+    ],
     'router' => [
         'routes' => [
             'api-rest' => [
