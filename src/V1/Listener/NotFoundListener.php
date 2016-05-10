@@ -35,7 +35,7 @@ class NotFoundListener implements ListenerAggregateInterface, NightClubModelAwar
     {
         $config = $e->getTarget()->getServiceManager()->get('Config');
 
-        if (!$config[self::NAME_CONFIG] && !is_array($config[self::NAME_CONFIG])) {
+        if (!isset($config[self::NAME_CONFIG]) || !is_array($config[self::NAME_CONFIG])) {
             return;
         }
 
