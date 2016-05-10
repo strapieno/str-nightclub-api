@@ -44,7 +44,7 @@ class NotFoundListener implements ListenerAggregateInterface, NightClubModelAwar
         $match = $routeMatch->getMatchedRouteName();
 
         if (in_array($match, $config[self::NAME_CONFIG])) {
-            $nightClubId = $routerMatch->getParam('nightclub_id');
+            $nightClubId = $routeMatch->getParam('nightclub_id');
             $entity = $this->getNightClubModelService()
                 ->find((new ActiveRecordCriteria())->setId($nightClubId))
                 ->current();
