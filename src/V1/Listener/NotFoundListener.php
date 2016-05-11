@@ -28,7 +28,7 @@ class NotFoundListener implements ListenerAggregateInterface, NightClubModelAwar
      */
     public function attach(EventManagerInterface $events)
     {
-        $this->listeners[] = $events->attach(MvcEvent::EVENT_ROUTE, [$this, 'notFound'], -649);
+        $this->listeners[] = $events->attach(MvcEvent::EVENT_ROUTE, [$this, 'notFound'], -600);
     }
 
     public function notFound(Event $e)
