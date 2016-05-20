@@ -1,1 +1,1 @@
-# Strapieno user api
+# Strapieno nightclub api
