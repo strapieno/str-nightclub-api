@@ -26,7 +26,7 @@ class Module implements HydratorProviderInterface
     public function onBootstrap(MvcEvent $e)
     {
         $events = $e->getApplication()->getEventManager();
-        // TODO make cors config
+        // TODO recover from configuration
         $listenerManager = $e->getApplication()->getServiceManager()->get('listenerManager');
         $events->attachAggregate($listenerManager->get('Strapieno\NightClub\Api\V1\Listener\NotFoundListener'));
     }
