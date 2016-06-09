@@ -149,6 +149,11 @@ return [
 
         'Strapieno\NightClub\Api\InputFilter\PostInputFilter' => [
             'merge' => 'Strapieno\NightClub\Model\InputFilter\DefaultInputFilter',
+            'user_id' => [
+                'require' => true,
+                'allow_empty' => false
+
+            ],
             'name' => [
                 'name' => 'name',
                 'require' => true,

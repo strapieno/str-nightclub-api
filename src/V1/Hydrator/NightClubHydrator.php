@@ -8,8 +8,11 @@ use Strapieno\NightClub\Model\Entity\Object\AggregateRatingObject;
 use Strapieno\NightClub\Model\Entity\Object\GeoCoordinateObject;
 use Strapieno\NightClub\Model\Entity\Object\MediaObject;
 use Strapieno\NightClub\Model\Entity\Object\PostalAddressObject;
+use Strapieno\User\Model\Entity\Reference\UserReference;
 use Strapieno\Utils\DataStructure\RefIdentityCollection;
 use Strapieno\Utils\Hydrator\DateHystoryHydrator;
+use Strapieno\Utils\Hydrator\Strategy\NamingStrategy\MapUnderscoreNamingStrategy;
+use Strapieno\Utils\Hydrator\Strategy\ReferenceEntityCompressStrategy;
 
 /**
  * Class NightClubHydrator
@@ -19,6 +22,8 @@ class NightClubHydrator extends DateHystoryHydrator
     public function __construct($underscoreSeparatedKeys = true)
     {
         parent::__construct($underscoreSeparatedKeys);
+
+        $this->setNamingStrategy(new MapUnderscoreNamingStrategy(['user_id  ' => 'userReference']));
 
         $this->addStrategy(
             'geo_coordinate',
@@ -41,6 +46,11 @@ class NightClubHydrator extends DateHystoryHydrator
             'media',
             // FIXME library 2 param type function
             new HasManyStrategy(new MediaObject(), new RefIdentityCollection(), true)
+        );
+
+        $this->addStrategy(
+            'user_id',
+            new ReferenceEntityCompressStrategy(new UserReference(), false)
         );
     }
 }
