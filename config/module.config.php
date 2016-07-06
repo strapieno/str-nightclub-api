@@ -105,6 +105,7 @@ return [
     ],
     'strapieno_input_filter_specs' => [
         'Strapieno\NightClub\Api\InputFilter\PostGeoCoordiateInputFilter' => [
+            'merge' => 'Strapieno\NightClub\Model\InputFilter\DefaultGeoCoordiateInputFilter',
             'latitude' => [
                 'name' => 'latitude',
                 'require' => true,
@@ -117,6 +118,7 @@ return [
             ]
         ],
         'Strapieno\NightClub\Api\InputFilter\PostPostalAddressInputFilter' => [
+            'merge' => 'Strapieno\NightClub\Model\InputFilter\DefaultPostalAddressInputFilter',
             'address_locality' => [
                 'name' => 'address_locality',
                 'require' => true,
